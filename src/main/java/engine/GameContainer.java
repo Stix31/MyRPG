@@ -3,6 +3,26 @@ package engine;
 public class GameContainer implements Runnable {
 
   /**
+   * Width of the game render engine.
+   */
+  private int width = 320;
+
+  /**
+   * Height of the game render engine.
+   */
+  private int height = 240;
+
+  /**
+   * Scale of the game render engine.
+   */
+  private float scale = 1f;
+
+  /**
+   * Title of the game render engine.
+   */
+  private String title = "RPGEngine_v1.0";
+
+  /**
    * Main Thread.
    */
   private Thread thread;
@@ -20,6 +40,70 @@ public class GameContainer implements Runnable {
    */
   public GameContainer () {
 
+  }
+
+  /**
+   * Get the width of the game render engine.
+   * @return int width.
+   */
+  public int getWidth() {
+    return width;
+  }
+
+  /**
+   * Set the width of the game render engine.
+   * @param width int
+   */
+  public void setWidth(int width) {
+    this.width = width;
+  }
+
+  /**
+   * Get the height of the game render engine.
+   * @return int height
+   */
+  public int getHeight() {
+    return height;
+  }
+
+  /**
+   * Set the height of the game render engine.
+   * @param height int
+   */
+  public void setHeight(int height) {
+    this.height = height;
+  }
+
+  /**
+   * Get the scale of the game render engine.
+   * @return float scale.
+   */
+  public float getScale() {
+    return scale;
+  }
+
+  /**
+   * Set the scale of the game render engine.
+   * @param scale float
+   */
+  public void setScale(float scale) {
+    this.scale = scale;
+  }
+
+  /**
+   * Get title of the game render engine.
+   * @return String title
+   */
+  public String getTitle() {
+    return title;
+  }
+
+  /**
+   * Set title of the game render engine.
+   * @param title String
+   */
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   /**
