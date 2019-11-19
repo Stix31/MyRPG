@@ -3,6 +3,11 @@ package engine;
 public class GameContainer implements Runnable {
 
   /**
+   * Max fps cap.
+   */
+  private final double UPDATE_CAP = 1.0/60.0;
+
+  /**
    * Width of the game render engine.
    */
   private int width = 320;
@@ -26,14 +31,16 @@ public class GameContainer implements Runnable {
    * Main Thread.
    */
   private Thread thread;
+
   /**
-   * Max fps cap.
-   */
-  private final double UPDATE_CAP = 1.0/60.0;
-  /**
-   * running condition.
+   * running status.
    */
   private boolean running = false;
+
+  /**
+   * Window.
+   */
+  private Window window;
 
   /**
    * Constructor.
@@ -59,19 +66,19 @@ public class GameContainer implements Runnable {
   }
 
   /**
-   * Get the height of the game render engine.
-   * @return int height
-   */
-  public int getHeight() {
-    return height;
-  }
-
-  /**
    * Set the height of the game render engine.
    * @param height int
    */
   public void setHeight(int height) {
     this.height = height;
+  }
+
+  /**
+   * Get the height of the game render engine.
+   * @return int height
+   */
+  public int getHeight() {
+    return height;
   }
 
   /**
@@ -110,6 +117,7 @@ public class GameContainer implements Runnable {
    * Start the main thread.
    */
   public void start() {
+    window = new Window(this);
     thread = new Thread(this);
     thread.run();
   }
@@ -174,6 +182,7 @@ public class GameContainer implements Runnable {
 
         if (render) {
           // Todo: Render Game
+          window.update();
           frames++;
         } else {
           try {
