@@ -20,7 +20,7 @@ public class GameContainer implements Runnable {
   /**
    * Scale of the game render engine.
    */
-  private float scale = 1f;
+  private float scale = 3f;
 
   /**
    * Title of the game render engine.
@@ -42,6 +42,10 @@ public class GameContainer implements Runnable {
    */
   private Window window;
 
+  /**
+   * Renderer.
+   */
+  private Renderer renderer;
   /**
    * Constructor.
    */
@@ -114,10 +118,19 @@ public class GameContainer implements Runnable {
   }
 
   /**
+   * get window for the class Renderer
+   * @return
+   */
+  public Window getWindow() {
+    return window;
+  }
+
+  /**
    * Start the main thread.
    */
   public void start() {
     window = new Window(this);
+    renderer = new Renderer(this);
     thread = new Thread(this);
     thread.run();
   }
@@ -182,6 +195,7 @@ public class GameContainer implements Runnable {
 
         if (render) {
           // Todo: Render Game
+          renderer.clear();
           window.update();
           frames++;
         } else {

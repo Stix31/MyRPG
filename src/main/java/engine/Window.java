@@ -13,6 +13,14 @@ public class Window {
   private BufferStrategy bStrategy;
   private Graphics graphics;
 
+  public BufferedImage getbImage() {
+    return bImage;
+  }
+
+  public Canvas getCanvas() {
+    return canvas;
+  }
+
   public Window (int width, int height, float scale) {
     bImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
   }
